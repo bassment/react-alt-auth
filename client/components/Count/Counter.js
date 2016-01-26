@@ -3,13 +3,14 @@ import styles from '../../css/Counter.css';
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 
+import CountActions from '../../actions/CountActions';
+
 export default class Counter extends React.Component {
   static propTypes = {
-    count: PropTypes.number.isRequired,
-    onIncrement: PropTypes.func.isRequired
+    count: PropTypes.number.isRequired
   };
 
-  increment = () => this.props.onIncrement();
+  increment = () => CountActions.increment();
 
   render() {
     return (
