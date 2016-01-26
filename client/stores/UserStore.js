@@ -22,9 +22,12 @@ class UserStore {
 
   @bind(UserActions.signup)
   signup(user) {
-    this.setState({
-      user: user
-    });
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+      this.setState({
+        user: user
+      });
+    }
   }
 
   @bind(UserActions.signout)
