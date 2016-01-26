@@ -28,12 +28,14 @@ if (isDeveloping) {
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
+  app.use(require('./server/routes/accounts'));
   app.get('*', function response(req, res) {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
     res.end();
   });
 } else {
   app.use(express.static(__dirname + '/dist'));
+  app.use(require('./server/routes/accounts'));
   app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });

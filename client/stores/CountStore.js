@@ -3,7 +3,7 @@ import CountActions from '../actions/CountActions';
 import { decorate, bind } from 'alt-utils/lib/decorators';
 
 @decorate(alt)
-class ChatStore {
+class CountStore {
   constructor() {
     this.state = {
       counter: 0
@@ -18,4 +18,4 @@ class ChatStore {
   }
 }
 
-export default alt.createStore(ChatStore);
+export default alt.createStore(CountStore);

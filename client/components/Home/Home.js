@@ -1,19 +1,36 @@
 import globalStyles from '../../css/global.css';
-import styles from '../../css/Home.css';
 
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Helmet from 'react-helmet';
-import {Link} from 'react-router';
+import Login from '../Login/Login';
 
+import UserStore from '../../stores/UserStore';
+import connectToStores from 'alt-utils/lib/connectToStores';
+
+@connectToStores
 export default class Home extends React.Component {
+  static propTypes = {
+    user: PropTypes.object
+  };
+
+  constructor(props) {
+    super(props);
+  }
+
+  static getStores() {
+    return [UserStore];
+  }
+
+  static getPropsFromStores() {
+    return UserStore.getState();
+  }
 
   render() {
     return (
       <div>
         <Helmet title="Automate"/>
           <section className={globalStyles.section}>
-            <h1>Go to Counter Page</h1>
-            <Link to="/count"><button className={styles.limeButton}>Go!</button></Link>
+            <Login user={this.props.user}/>
           </section>
       </div>
     );

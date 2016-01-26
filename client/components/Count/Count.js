@@ -4,7 +4,7 @@ import React, {PropTypes} from 'react';
 import Helmet from 'react-helmet';
 import Counter from './Counter';
 
-import CountStore from '../../stores/CountStores';
+import CountStore from '../../stores/CountStore';
 import connectToStores from 'alt-utils/lib/connectToStores';
 
 @connectToStores
