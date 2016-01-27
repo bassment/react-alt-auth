@@ -5,8 +5,8 @@ import { browserHistory } from 'react-router';
 class UserActions {
   signin(username, password) {
     return (dispatch) => {
-      API.signin(username, password).then(data => {
-        dispatch(data.user);
+      API.signin(username, password).then(response => {
+        dispatch(response);
         browserHistory.push('/count');
       });
     };
@@ -14,8 +14,8 @@ class UserActions {
 
   signup(username, password) {
     return (dispatch) => {
-      API.signup(username, password).then(data => {
-        dispatch(data.user);
+      API.signup(username, password).then(response => {
+        dispatch(response);
         browserHistory.push('/count');
       });
     };

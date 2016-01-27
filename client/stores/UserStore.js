@@ -7,7 +7,8 @@ import { decorate, bind } from 'alt-utils/lib/decorators';
 class UserStore {
   constructor() {
     this.state = {
-      user: null || JSON.parse(localStorage.getItem('user'))
+      user: null || JSON.parse(localStorage.getItem('user')),
+      errorMessage: null
     };
   }
 
@@ -20,22 +21,22 @@ class UserStore {
   }
 
   @bind(UserActions.signin)
-  signin(user) {
-    if (user) {
-      localStorage.setItem('user', JSON.stringify(user));
-      this.setState({
-        user: user
-      });
+  signin(response) {
+    if (response.user) {
+      localStorage.setItem('user', JSON.stringify(response.user));
+      this.setState({user: response.user, errorMessage: null});
+    } else {
+      this.setState({errorMessage: response.message});
     }
   }
 
   @bind(UserActions.signup)
-  signup(user) {
-    if (user) {
-      localStorage.setItem('user', JSON.stringify(user));
-      this.setState({
-        user: user
-      });
+  signup(response) {
+    if (response.user) {
+      localStorage.setItem('user', JSON.stringify(response.user));
+      this.setState({user: response.user, errorMessage: null});
+    } else {
+      this.setState({errorMessage: response.message});
     }
   }
 

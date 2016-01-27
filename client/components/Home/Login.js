@@ -7,7 +7,8 @@ import SocialAuthActions from '../../actions/SocialAuthActions';
 
 export default class Login extends React.Component {
   static propTypes = {
-    user: PropTypes.object
+    user: PropTypes.object,
+    error: PropTypes.string
   };
 
   socialLogin = () => SocialAuthActions.login();
@@ -40,6 +41,9 @@ export default class Login extends React.Component {
       <div className="row">
         <p><input type="text" placeholder="Username" ref="username" /></p>
         <p><input type="password" placeholder="Password" ref="password" /></p>
+        {this.props.error ?
+        <span>{this.props.error}</span> :
+        null}
         <p>
           <button onClick={this.signin}>Sign In</button>
           <button onClick={this.signup}>Sign Up</button>

@@ -10,7 +10,8 @@ import connectToStores from 'alt-utils/lib/connectToStores';
 @connectToStores
 export default class Home extends React.Component {
   static propTypes = {
-    user: PropTypes.object
+    user: PropTypes.object,
+    errorMessage: PropTypes.string
   };
 
   constructor(props) {
@@ -30,7 +31,7 @@ export default class Home extends React.Component {
       <div>
         <Helmet title="Automate"/>
           <section className={globalStyles.section}>
-            <Login user={this.props.user}/>
+            <Login user={this.props.user} error={this.props.errorMessage}/>
           </section>
       </div>
     );

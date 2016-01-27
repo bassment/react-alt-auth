@@ -50,7 +50,7 @@ router.post('/api/signin', function(req, res) {
 
   users.child(username).once('value', function(snapshot) {
     if (!snapshot.exists() || snapshot.child('passwordHash').val() !== hash(password)) {
-      return res.json({signedIn: false, message: 'wrong username or password'});
+      return res.json({signedIn: false, message: 'Wrong username or password'});
     }
 
     var user = snapshot.exportVal();
