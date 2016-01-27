@@ -1,0 +1,16 @@
+.squareButton {
+  width: 100px;
+  height: 50px;
+}
+
+.yellowButton {
+  composes: squareButton;
+  background-color: yellow;
+  color: blue;
+}
+
+.greenButton {
+  composes: squareButton;
+  background-color: green;
+  color: blue;
+}

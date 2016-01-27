@@ -1,0 +1,10 @@
+.squareButton {
+  width: 100px;
+  height: 50px;
+}
+
+.limeButton {
+  composes: squareButton;
+  background-color: lime;
+  color: blue;
+}
