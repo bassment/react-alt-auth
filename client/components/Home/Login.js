@@ -1,11 +1,16 @@
+import styles from '../../css/Login.css';
+
 import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import UserActions from '../../actions/UserActions';
+import SocialAuthActions from '../../actions/SocialAuthActions';
 
 export default class Login extends React.Component {
   static propTypes = {
     user: PropTypes.object
   };
+
+  socialLogin = () => SocialAuthActions.login();
 
   signin = () => {
     const username = ReactDOM.findDOMNode(this.refs.username).value;
@@ -25,7 +30,7 @@ export default class Login extends React.Component {
     if (this.props.user) {
       return (
         <div className="row">
-          <p>Hi {this.props.user.username}!</p>
+          <p>Hi {this.props.user.username || this.props.user.google.displayName}!</p>
           <p><button onClick={this.signout}>Sign Out</button></p>
         </div>
       );
@@ -33,10 +38,14 @@ export default class Login extends React.Component {
 
     return (
       <div className="row">
-        <p><input type="text" className="u-full-width" placeholder="Username" ref="username" /></p>
-        <p><input type="password" className="u-full-width" placeholder="Password" ref="password" /></p>
+        <p><input type="text" placeholder="Username" ref="username" /></p>
+        <p><input type="password" placeholder="Password" ref="password" /></p>
         <p>
           <button onClick={this.signin}>Sign In</button>
+          <button onClick={this.signup}>Sign Up</button>
+          <button
+            className={styles.googleButton}
+            onClick={this.socialLogin}>Login with Google</button>
         </p>
       </div>
     );

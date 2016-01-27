@@ -2,7 +2,7 @@ import globalStyles from '../../css/global.css';
 
 import React, {PropTypes} from 'react';
 import Helmet from 'react-helmet';
-import Login from '../Login/Login';
+import Login from './Login';
 
 import UserStore from '../../stores/UserStore';
 import connectToStores from 'alt-utils/lib/connectToStores';
