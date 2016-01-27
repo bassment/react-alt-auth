@@ -42,11 +42,11 @@ export default class Login extends React.Component {
         <p><input type="text" placeholder="Username" ref="username" /></p>
         <p><input type="password" placeholder="Password" ref="password" /></p>
         {this.props.error ?
-        <span>{this.props.error}</span> :
+        <span className={styles.errorMessage}>{this.props.error}</span> :
         null}
         <p>
-          <button onClick={this.signin}>Sign In</button>
-          <button onClick={this.signup}>Sign Up</button>
+          <button className={styles.signButton} onClick={this.signin}>Sign In</button>
+          <button className={styles.signButton} onClick={this.signup}>Sign Up</button>
           <button
             className={styles.googleButton}
             onClick={this.socialLogin}>Login with Google</button>

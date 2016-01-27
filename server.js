@@ -8,7 +8,7 @@ var webpackHotMiddleware = require('webpack-hot-middleware');
 var config = require('./webpack.config.js');
 
 var isDeveloping = process.env.NODE_ENV !== 'production';
-var port = isDeveloping ? 3000 : process.env.PORT;
+var port = isDeveloping ? 3000 : 8000;
 var app = express();
 
 if (isDeveloping) {
@@ -28,6 +28,7 @@ if (isDeveloping) {
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
+  app.use(express.static('public'));
   app.use(require('./server/routes/accounts'));
   app.get('*', function response(req, res) {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
@@ -35,6 +36,7 @@ if (isDeveloping) {
   });
 } else {
   app.use(express.static(__dirname + '/dist'));
+  app.use(express.static('public'));
   app.use(require('./server/routes/accounts'));
   app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
