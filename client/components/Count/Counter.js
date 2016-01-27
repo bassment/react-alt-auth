@@ -17,8 +17,8 @@ export default class Counter extends React.Component {
      <div>
        <h1>Count: {this.props.count}</h1>
        <p>Click the button to increment the counter</p>
-       <button className={styles.yellowButton} onClick={this.increment}>Click!</button>
-       <Link to="/"><button className={styles.greenButton}>Go Home</button></Link>
+       <button className={styles.squareButton} onClick={this.increment}>Click!</button>
+       <Link to="/"><button className={styles.squareButton}>Go Home</button></Link>
      </div>
    );
   }
