@@ -1,4 +1,4 @@
-# webpack-hot-react
+# react-alt-auth
 _Template project for creating webpack-hot-react applications(login and signUp logic included)_ using:
 
 **Node, Express, React, ES6, ES7, React-Router** 
