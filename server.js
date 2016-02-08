@@ -1,19 +1,20 @@
+/* eslint strict: 0, no-console: 0 */
 'use strict';
 
-var path = require('path');
-var express = require('express');
-var webpack = require('webpack');
-var webpackMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
-var config = require('./webpack.config.js');
+const path = require('path');
+const express = require('express');
+const webpack = require('webpack');
+const webpackMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const config = require('./webpack.config.js');
 
-var isDeveloping = process.env.NODE_ENV !== 'production';
-var port = isDeveloping ? 3000 : process.env.PORT;
-var app = express();
+const isDeveloping = process.env.NODE_ENV !== 'production';
+const port = isDeveloping ? 3000 : process.env.PORT;
+const app = express();
 
 if (isDeveloping) {
-  var compiler = webpack(config);
-  var middleware = webpackMiddleware(compiler, {
+  const compiler = webpack(config);
+  const middleware = webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,
     contentBase: 'src',
     stats: {
