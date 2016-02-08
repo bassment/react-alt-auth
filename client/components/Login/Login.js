@@ -2,15 +2,16 @@ import shared from '../../css/shared.css';
 
 import React, {PropTypes} from 'react';
 import Helmet from 'react-helmet';
-import Counter from './Counter';
+import LoginForm from './LoginForm';
 
-import CountStore from '../../stores/CountStore';
+import UserStore from '../../stores/UserStore';
 import connectToStores from 'alt-utils/lib/connectToStores';
 
 @connectToStores
-export default class Page extends React.Component {
+export default class Home extends React.Component {
   static propTypes = {
-    counter: PropTypes.number.isRequired
+    user: PropTypes.object,
+    errorMessage: PropTypes.string
   };
 
   constructor(props) {
@@ -18,19 +19,19 @@ export default class Page extends React.Component {
   }
 
   static getStores() {
-    return [CountStore];
+    return [UserStore];
   }
 
   static getPropsFromStores() {
-    return CountStore.getState();
+    return UserStore.getState();
   }
 
   render() {
     return (
       <div>
-        <Helmet title="Count"/>
+        <Helmet title="Login"/>
           <section className={shared.section}>
-            <Counter count={this.props.counter}/>
+            <LoginForm user={this.props.user} error={this.props.errorMessage}/>
           </section>
       </div>
     );

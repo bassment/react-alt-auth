@@ -1,10 +1,11 @@
-.googleButton {
-  display: block;
-  margin: 10px auto;
+.button {
+  margin: 5px 5px;
 }
 
-.signButton {
-  margin: 5px 5px;
+.googleButton {
+  composes: button-primary from 'skeleton-css/css/skeleton.css';
+  display: block;
+  margin: 10px auto;
 }
 
 .errorMessage {

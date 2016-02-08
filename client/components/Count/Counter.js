@@ -1,3 +1,4 @@
+import shared from '../../css/shared.css';
 import styles from '../../css/Counter.css';
 
 import React, {PropTypes} from 'react';
@@ -16,9 +17,12 @@ export default class Counter extends React.Component {
     return (
      <div>
        <h1>Count: {this.props.count}</h1>
-       <p>Click the button to increment the counter</p>
-       <button className={styles.squareButton} onClick={this.increment}>Click!</button>
-       <Link to="/"><button className={styles.squareButton}>Go Home</button></Link>
+       <h5>Click the button to increment the counter</h5>
+       <button className={styles.primaryButton} onClick={this.increment}>Click!</button>
+       <p>
+         <Link to="/"><button className={shared.button}>Go Home</button></Link>
+         <Link to="/login"><button className={shared.button}>Go Login</button></Link>
+       </p>
      </div>
    );
   }

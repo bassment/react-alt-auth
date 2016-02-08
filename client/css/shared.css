@@ -11,3 +11,12 @@
   composes: verticalCenter;
   text-align: center;
 }
+
+.button {
+  height: 50px;
+  margin: 10px 5px;
+}
+
+.primaryButton {
+  composes: button-primary from 'skeleton-css/css/skeleton.css';
+}

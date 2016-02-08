@@ -31,7 +31,7 @@ export default class Login extends React.Component {
     if (this.props.user) {
       return (
         <div className="row">
-          <p>Hi {this.props.user.username || this.props.user.google.displayName}!</p>
+          <h5>Hi, {this.props.user.username || this.props.user.google.displayName}!</h5>
           <p><button onClick={this.signout}>Sign Out</button></p>
         </div>
       );
@@ -45,11 +45,13 @@ export default class Login extends React.Component {
         <span className={styles.errorMessage}>{this.props.error}</span> :
         null}
         <p>
-          <button className={styles.signButton} onClick={this.signin}>Sign In</button>
-          <button className={styles.signButton} onClick={this.signup}>Sign Up</button>
+          <button className={styles.button} onClick={this.signin}>Sign In</button>
+          <button className={styles.button} onClick={this.signup}>Sign Up</button>
           <button
             className={styles.googleButton}
-            onClick={this.socialLogin}>Login with Google</button>
+            onClick={this.socialLogin}>
+            Login with Google
+          </button>
         </p>
       </div>
     );

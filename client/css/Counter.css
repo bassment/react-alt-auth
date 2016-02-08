@@ -1,4 +1,5 @@
-.squareButton {
+.primaryButton {
+  composes: button-primary from 'skeleton-css/css/skeleton.css';
   height: 50px;
   margin: 5px 5px;
 }

@@ -1,3 +1,5 @@
+import '../css/globals.css';
+
 import React, {PropTypes} from 'react';
 
 const App = ({children}) =>
